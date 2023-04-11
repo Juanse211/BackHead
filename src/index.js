@@ -1,5 +1,5 @@
 import express from 'express'
-import productsJson from './products.json'
+import productsJson from '../products.json'
 
 const app = express()
 const port = 8080
