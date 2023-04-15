@@ -1,5 +1,4 @@
 import  express  from 'express'
-import { min } from 'date-fns'
 
 const app = express()
 const port = 8080
@@ -12,12 +11,9 @@ const users = [
   {id: 3, nombre: "lucia", apellido: "maria", edad:27, genero: "F"},
 ]
 
-app.get('/:querys', (req, res) => {
-  res.send(req.query)
-})
-
-app.get('/', (req, res) => {
-  res.send("Hola a todos pero desde express")
+app.get('/find-users', (req, res) => {
+  const {genero, edad, nombre} = req.query
+  res.send({genero, edad, nombre})
 })
 
 app.get('/user/:id', (req, res) => {
@@ -26,7 +22,6 @@ app.get('/user/:id', (req, res) => {
   res.send(user)
   console.log(userId)
 })
-
 /*
 app.get('/usuarios', (req, res) => {
   const query = req.query
@@ -60,17 +55,6 @@ app.get('/:unParametro', (req, res) => {
 app.get('/:unParametro/:otroParametro', (req, res) => {
   const { unParametro, otroParametro } = req.params
   res.send(`Se recibieron los parametros ${unParametro} y ${otroParametro}`)
-})
-
-app.get('/user', (req, res) => {
-  const nombre = faker.name.firstName()
-  const apellido = faker.name.lastName()
-  res.send({
-    nombre,
-    apellido,
-    edad: faker.datatype.number({ min: 18, max: 90 }),
-    correo: faker.helpers.unique(faker.internet.email, [nombre, apellido])
-  })
 })
 
 */
