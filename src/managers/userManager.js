@@ -1,3 +1,4 @@
+/*
 const fs = require('fs')
 const path = './User.json'
 const { createHash } = require('crypto')
@@ -59,3 +60,5 @@ async function main() {
   console.log(await manager.validateUser("jTorres", "password123"))
 }
 main()
+
+*/
