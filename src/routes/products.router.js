@@ -24,7 +24,7 @@ router.post('/', async(req, res) => {
     }
     if(!product.title || !product.description || !product.code || !product.price || !product.stock){
         return res.status(400).send({error:'incomplete values'})//validacion de campos vacios
-    }
+    } 
     //llamar al metodo addProduct    
     const result = await productManager.addProduct(product)
 
