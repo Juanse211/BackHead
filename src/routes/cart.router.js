@@ -3,14 +3,14 @@ import CartManager from '../managers/cartManager.js'
 
 const router = Router();
 
-const cartManager = new CartManager()
+const cartManager = new CartManager('../Backhead/src/files/cart.json')
 
 router.post('/', async (req, res) => {
-  const cart = {
-    products: []
-  }
-  const result = await cartManager.save(cart)
-  res.send({ status: 'success', result })
+  const cart = req.body;
+  //llamar al metodo addProduct    
+  const result = await cartManager.addCart(cart)
+
+  res.send({ status: 'success', result })//si salio todo ok lo guardo y muestro
 })
 
 router.get('/:id', async (req, res) => {
