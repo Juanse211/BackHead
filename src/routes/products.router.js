@@ -31,16 +31,17 @@ router.post('/', async(req, res) => {
     res.send({ status: 'success', result })//si salio todo ok lo guardo y muestro
 });
 
-router.put('/:id',(req,res) =>{
-    // llamar al metodo updateProduct para actualizar sin modificar el id
-    const id = parseInt(req.params)
+router.put('/:id',async(req,res) =>{
+    const id = Number(req.params.id)
     const product = req.body;
-    res.send({status: 'success', product})
+    const result = await productManager.updateProduct(id, product) 
+    res.send({status: 'success', result})
 })
 
-router.delete('/:id',(req,res)=>{
-    const id = parseInt(req.params)
-    //llamar al metodo deleteProduct pasandole como parametro id
+router.delete('/:id',async(req,res)=>{
+    const id = Number(req.params.id)
+    const result = await productManager.deleteProduct(id)
+
     res.send({status: 'success'})
 })
 
