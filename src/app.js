@@ -15,15 +15,13 @@ app.engine('handlebars', handlebars.engine())
 app.set('views', `${__dirname}/views`)
 app.set('view engine', 'handlebars')
 
-app.use('/', viewsRouter)
-
 //Http
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/api/products',productRouter)
 app.use('/api/carts', cartsRouter)
 
-
+app.use('/realtimeproducts', viewsRouter)
 const server = app.listen(8080, () => { console.log('Servidor escuchando en el puerto 8080') })
 const io = new Server(server)
 

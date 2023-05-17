@@ -119,5 +119,17 @@
 		"status": true,
 		"category": "fine art",
 		"id": 11
+	},
+	{
+		"title": "RESIDENTAL NEMESIS Copia",
+		"description": "Radiohead, Fineart",
+		"price": 38,
+		"thumbnail": "https://cdn.shopify.com/s/files/1/0597/5044/9307/products/e196da0e-c6a3-4054-b5d6-749425e291a0_2048x2048.jpg?v=1637169137",
+		"code": "d3f5",
+		"stock": 99,
+		"status": true,
+		"category": "fine art",
+		"estado": true,
+		"id": 12
 	}
 ]

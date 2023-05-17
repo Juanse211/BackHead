@@ -1,8 +1,14 @@
 import { Router } from "express";  
 
-const router = Router()
-router.get('/', (req, res) =>{
-  res.render('index')
-})
+import ProductManager from '../managers/productManager.js';
 
-export default router
+const router = Router()
+const productManager = new ProductManager('../Backhead/src/files/products.json');
+
+
+router.get('/', async (req, res) => { 
+    const products = await productManager.getProducts()
+    res.render('realTimeProducts', { products });
+});
+
+export default router;
